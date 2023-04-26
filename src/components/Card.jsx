@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import GameContext from '../context/GameContext'
 
 function Card() {
-  // TODO: import the image src, and alt from app context, and add it to the component
-  const { src, alt } = {}
+  const { card } = useContext(GameContext)
   return (
     <>
       {/* <img src={src} alt={alt} /> */}

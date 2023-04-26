@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import GameContext from '../context/GameContext'
 
 function Score() {
-  // TODO: import the score from app context, and add it to the component
-  const { score } = {}
-  return <p>Score: ${score}</p>
+  const { score } = useContext(GameContext)
+  return <p>Score: {score}</p>
 }
 
 export default Score

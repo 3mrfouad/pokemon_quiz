@@ -1,11 +1,13 @@
+import React, { useContext } from 'react'
+
+import GameContext from '../context/GameContext'
 import { NO_OF_ROUNDS } from '../utils/constants'
-import React from 'react'
+
 function Rounds() {
-  // TODO: import the rounds from app context, and add it to the component
-  const { rounds } = {}
+  const { round } = useContext(GameContext)
   return (
     <p>
-      Rounds: ${rounds}/ ${NO_OF_ROUNDS}
+      Rounds: {round}/ {NO_OF_ROUNDS}
     </p>
   )
 }
