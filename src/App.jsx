@@ -8,7 +8,7 @@ import UserGuess from './components/UserGuess'
 
 function App() {
   return (
-    <>
+    <div className="app__container">
       <h1>Pokemon Quiz</h1>
       <div className="score__container">
         <Score />
@@ -23,7 +23,7 @@ function App() {
           <Next />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

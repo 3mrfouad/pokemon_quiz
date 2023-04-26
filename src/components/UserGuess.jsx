@@ -1,13 +1,14 @@
 import React from 'react'
-
 function UserGuess() {
   const onSubmit = event => {
     event.preventDefault()
   }
   return (
     <form>
-      <input />
-      <button onClick={onSubmit}>Submit</button>
+      <input className="guess__input" />
+      <button className="btn submit__btn" onClick={onSubmit}>
+        Submit
+      </button>
     </form>
   )
 }
