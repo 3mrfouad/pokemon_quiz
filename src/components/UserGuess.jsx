@@ -2,8 +2,7 @@ import GameContext from '../context/GameContext'
 import { useContext } from 'react'
 
 function UserGuess() {
-  const { setUserGuess, userInputRef, userGuess } = useContext(GameContext)
-  console.log('UserGuess', userGuess)
+  const { setUserGuess, userInputRef } = useContext(GameContext)
   const onSubmit = event => {
     event.preventDefault()
 
