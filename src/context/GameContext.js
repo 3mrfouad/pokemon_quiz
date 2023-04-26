@@ -11,7 +11,9 @@ const initialValue = {
   setCard: () => {},
 
   userGuess: '',
-  setUserGuess: () => {}
+  setUserGuess: () => {},
+
+  userInputRef: null
 }
 const GameContext = createContext(initialValue)
 

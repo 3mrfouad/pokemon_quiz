@@ -2,6 +2,7 @@
   --box-shadow: 1px 1px 1px rgba(153, 205, 50, 0.497);
   --border-radius-lg: 8px;
   --border-radius-sm: 4px;
+  text-align: center;
 }
 
 .app__container {
@@ -11,6 +12,11 @@
   margin: auto;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.app__error {
+  color: red;
+  font-size: 0.75rem;
 }
 
 .score__container {
@@ -39,18 +45,25 @@
   border: none;
 }
 
+.card__image__container {
+  overflow: hidden;
+}
+
 .card__image {
   display: block;
   width: 150px;
   margin-bottom: 1rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-lg);
+  /* margin-top: -20px;
+  margin-bottom: -100px; */
 }
 
 .guess__input {
   border: 1px solid #9acd32;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--box-shadow);
+  margin-top: 1rem;
 }
 
 .submit__btn {

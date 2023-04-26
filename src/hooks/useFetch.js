@@ -10,12 +10,12 @@ const useFetch = (resource, options, forceReload) => {
     fetch(resource, options)
       .then(response => response.json())
       .then(json => {
-        setData(json)
+        setData(json?.data)
         setError(null)
         setLoading(false)
       })
       .catch(err => {
-        setError('[App Error]', err)
+        setError(`[App Error] ${err.message}`)
         setData([])
         setLoading(false)
       })
