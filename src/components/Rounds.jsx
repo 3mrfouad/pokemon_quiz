@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
-
 import GameContext from '../context/GameContext'
 import { NO_OF_ROUNDS } from '../utils/constants'
+import { useContext } from 'react'
 
 function Rounds() {
   const { round } = useContext(GameContext)

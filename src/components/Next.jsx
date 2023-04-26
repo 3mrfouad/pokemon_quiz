@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Next() {
   const onNext = () => {
     // action on click next
