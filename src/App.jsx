@@ -9,6 +9,7 @@ import Next from './components/Next'
 import Rest from './components/Rest'
 import Rounds from './components/Rounds'
 import Score from './components/Score'
+import TopScore from './components/TopScore'
 import UserGuess from './components/UserGuess'
 
 function App() {
@@ -19,8 +20,7 @@ function App() {
     cards,
     randomizeIndex,
     isGameOver,
-    nextErrorMsg,
-    score
+    nextErrorMsg
   } = useContext(GameContext)
 
   useEffect(() => {
@@ -43,6 +43,7 @@ function App() {
       <h1>Pokemon Quiz</h1>
       <div className="score__container">
         <Score />
+        <TopScore />
         <Rounds />
       </div>
       <div className="game__container">

@@ -1,9 +1,10 @@
 import GameContext from '../context/GameContext'
+import { HIGHEST_SCORE_KEY } from '../utils/constants'
 import { useContext } from 'react'
-
 function Rest() {
   const {
     setScore,
+    score,
     setRound,
     userInputRef,
     setUserGuess,
@@ -22,6 +23,8 @@ function Rest() {
     userInputRef.current.removeAttribute('disabled')
     const randomIndex = randomizeIndex()
     if (cards?.length) setCard(cards[randomIndex])
+    if (localStorage.getItem(HIGHEST_SCORE_KEY) < score)
+      localStorage.setItem(HIGHEST_SCORE_KEY, score)
   }
 
   return (
