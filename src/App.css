@@ -28,7 +28,7 @@ input {
   margin: auto;
   text-align: center;
   border: 2px solid var(--game-clr-theme);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow);
 }

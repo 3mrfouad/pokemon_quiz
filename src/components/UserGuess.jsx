@@ -1,12 +1,16 @@
 import GameContext from '../context/GameContext'
 import { useContext } from 'react'
 function UserGuess() {
-  const { setUserGuess, userInputRef } = useContext(GameContext)
+  const { setUserGuess, userInputRef, setNextErrorMsg } =
+    useContext(GameContext)
 
   const onSubmit = event => {
     event.preventDefault()
-
+    if (!userInputRef.current.value) {
+      setNextErrorMsg('Please enter a guess')
+    }
     if (userInputRef.current?.value) {
+      setNextErrorMsg('')
       setUserGuess(userInputRef.current.value)
       userInputRef.current.setAttribute('disabled', '')
     }
