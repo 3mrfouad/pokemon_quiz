@@ -1,7 +1,7 @@
 import GameContext from '../context/GameContext'
 import { useContext } from 'react'
 function UserGuess() {
-  const { setUserGuess, userInputRef, setNextErrorMsg } =
+  const { setUserGuess, userInputRef, setNextErrorMsg, isGameOver } =
     useContext(GameContext)
 
   const onSubmit = event => {
@@ -19,7 +19,12 @@ function UserGuess() {
     <form onSubmit={onSubmit}>
       <div className="input__group">
         <input ref={userInputRef} className="guess__input" />
-        <button className="btn submit__btn">Submit</button>
+        <button
+          className="btn submit__btn"
+          disabled={isGameOver ? 'disabled' : undefined}
+        >
+          Submit
+        </button>
       </div>
     </form>
   )

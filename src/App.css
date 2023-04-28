@@ -146,6 +146,10 @@ input {
   border: none;
 }
 
+.submit__btn:disabled {
+  cursor: not-allowed;
+}
+
 /* common styles */
 
 .btn {
