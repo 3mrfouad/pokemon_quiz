@@ -11,7 +11,8 @@ function Next() {
     setUserGuess,
     userGuess,
     randomizeIndex,
-    setNextErrorMsg
+    setNextErrorMsg,
+    setIsGameOver
   } = useContext(GameContext)
 
   const onNext = () => {
@@ -24,7 +25,7 @@ function Next() {
       return
     }
 
-    if (round !== NO_OF_ROUNDS) {
+    if (round < NO_OF_ROUNDS) {
       setRound(prevRound => prevRound + 1)
       userInputRef.current.value = ''
       setUserGuess('')
@@ -33,7 +34,7 @@ function Next() {
       const randomIndex = randomizeIndex()
       if (cards?.length) setCard(cards[randomIndex])
     } else {
-      setRound(prevRound => prevRound + 1)
+      setIsGameOver(true)
       return
     }
   }

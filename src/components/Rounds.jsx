@@ -3,8 +3,8 @@ import { NO_OF_ROUNDS } from '../utils/constants'
 import { useContext } from 'react'
 
 function Rounds() {
-  const { round, isGameOver } = useContext(GameContext)
-  return isGameOver ? null : (
+  const { round } = useContext(GameContext)
+  return (
     <p>
       Rounds: {round}/ {NO_OF_ROUNDS}{' '}
     </p>

@@ -57,7 +57,8 @@ const GameProvider = ({ children }) => {
     randomizeIndex,
     nextErrorMsg,
     setNextErrorMsg,
-    isGameOver
+    isGameOver,
+    setIsGameOver
   }
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>
