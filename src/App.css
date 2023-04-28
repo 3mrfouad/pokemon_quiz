@@ -45,8 +45,12 @@
   border: none;
 }
 
-.card__image__container {
+.card__image__inner__container {
   overflow: hidden;
+}
+
+.card__image__container {
+  height: 210px;
 }
 
 .card__image {
@@ -55,8 +59,14 @@
   margin-bottom: 1rem;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-lg);
-  margin-top: -20px;
-  margin-bottom: -100px;
+}
+
+.next__error__msg {
+  color: red;
+  font-size: 0.75rem;
+  height: 1ch;
+  display: block;
+  text-align: left;
 }
 
 .guess__input {

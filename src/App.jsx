@@ -5,16 +5,17 @@ import { useContext, useEffect } from 'react'
 import Card from './components/Card'
 import GameContext from './context/GameContext'
 import Next from './components/Next'
+import Rest from './components/Rest'
 import Rounds from './components/Rounds'
 import Score from './components/Score'
 import UserGuess from './components/UserGuess'
-import random from 'lodash.random'
 
 function App() {
-  const { loading, error, setCard, cards } = useContext(GameContext)
+  const { loading, error, setCard, cards, randomizeIndex, isGameOver } =
+    useContext(GameContext)
 
   useEffect(() => {
-    const randomIndex = random(0, cards?.length - 1)
+    const randomIndex = randomizeIndex()
     if (cards?.length) setCard(cards[randomIndex])
   }, [loading])
 
@@ -40,14 +41,10 @@ function App() {
           <Card />
           <UserGuess />
         </div>
-        <div className="right__col">
-          <Next />
-        </div>
+        <div className="right__col">{isGameOver ? <Rest /> : <Next />}</div>
       </div>
     </div>
   )
 }
 
 export default App
-
-// TODO: create useNextRandomCard() hook to centralize the card randomization logic

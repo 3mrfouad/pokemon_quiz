@@ -13,7 +13,15 @@ const initialValue = {
   userGuess: '',
   setUserGuess: () => {},
 
-  userInputRef: null
+  userInputRef: null,
+
+  randomizeIndex: () => {},
+
+  nextErrorMsg: '',
+  setNextErrorMsg: () => {},
+
+  isGameOver: false,
+  setIsGameOver: () => {}
 }
 const GameContext = createContext(initialValue)
 

@@ -1,19 +1,40 @@
 import GameContext from '../context/GameContext'
 import { NO_OF_ROUNDS } from '../utils/constants'
-import random from 'lodash.random'
 import { useContext } from 'react'
 function Next() {
-  const { setRound, round, userInputRef, cards, setCard, userGuess } =
-    useContext(GameContext)
+  const {
+    setRound,
+    round,
+    userInputRef,
+    cards,
+    setCard,
+    setUserGuess,
+    userGuess,
+    randomizeIndex,
+    setNextErrorMsg
+  } = useContext(GameContext)
 
   const onNext = () => {
-    if (!userGuess) return
-    if (round < NO_OF_ROUNDS) {
+    if (!userInputRef.current.value || !userGuess) {
+      if (!userInputRef.current.value) {
+        setNextErrorMsg('Please enter a guess')
+      } else if (!userGuess) {
+        setNextErrorMsg('Please submit your guess')
+      }
+      return
+    }
+
+    if (round !== NO_OF_ROUNDS) {
       setRound(prevRound => prevRound + 1)
       userInputRef.current.value = ''
+      setUserGuess('')
+      setNextErrorMsg('')
       userInputRef.current.removeAttribute('disabled')
-      const randomIndex = random(0, cards?.length - 1)
+      const randomIndex = randomizeIndex()
       if (cards?.length) setCard(cards[randomIndex])
+    } else {
+      setRound(prevRound => prevRound + 1)
+      return
     }
   }
   return (
