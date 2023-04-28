@@ -90,9 +90,11 @@ input {
 
 .game__controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
   align-items: center;
+  justify-content: center;
 }
 
 .next__btn {
@@ -110,6 +112,8 @@ input {
 
 .input__group {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
 }
 
