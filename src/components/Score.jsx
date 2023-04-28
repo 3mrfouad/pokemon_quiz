@@ -1,12 +1,14 @@
 import { useContext, useEffect } from 'react'
 
 import GameContext from '../context/GameContext'
+import useGuessResult from '../hooks/useGuessResult'
 
 function Score() {
-  const { score, setScore, userGuess, card } = useContext(GameContext)
+  const { score, setScore, userGuess } = useContext(GameContext)
+  const isWrongGuess = useGuessResult()
+
   useEffect(() => {
-    if (userGuess?.toLowerCase() === card?.name?.toLowerCase())
-      setScore(prevScore => prevScore + 1)
+    if (!isWrongGuess) setScore(prevScore => prevScore + 1)
   }, [userGuess])
 
   return (

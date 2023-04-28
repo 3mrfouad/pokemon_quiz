@@ -10,6 +10,7 @@ const options = {
   headers: { 'X-Api-Key': import.meta.env.VITE_API_KEY }
 }
 
+// eslint-disable-next-line react/prop-types
 const GameProvider = ({ children }) => {
   const [score, setScore] = useState(0)
   const [round, setRound] = useState(1)

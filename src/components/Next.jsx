@@ -15,27 +15,32 @@ function Next() {
     setIsGameOver
   } = useContext(GameContext)
 
-  const onNext = () => {
+  const showErrorMessages = () => {
     if (!userInputRef.current.value || !userGuess) {
       if (!userInputRef.current.value) {
         setNextErrorMsg('Please enter a guess')
       } else if (!userGuess) {
         setNextErrorMsg('Please submit your guess')
       }
-      return
     }
+  }
 
+  const resetBoardForNewRound = () => {
+    setRound(prevRound => prevRound + 1)
+    userInputRef.current.value = ''
+    setUserGuess('')
+    setNextErrorMsg('')
+    userInputRef.current.removeAttribute('disabled')
+    const randomIndex = randomizeIndex()
+    if (cards?.length) setCard(cards[randomIndex])
+  }
+
+  const onNext = () => {
+    showErrorMessages()
     if (round < NO_OF_ROUNDS) {
-      setRound(prevRound => prevRound + 1)
-      userInputRef.current.value = ''
-      setUserGuess('')
-      setNextErrorMsg('')
-      userInputRef.current.removeAttribute('disabled')
-      const randomIndex = randomizeIndex()
-      if (cards?.length) setCard(cards[randomIndex])
+      resetBoardForNewRound()
     } else {
       setIsGameOver(true)
-      return
     }
   }
   return (
