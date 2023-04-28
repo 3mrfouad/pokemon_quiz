@@ -26,6 +26,7 @@ function Rest() {
 
   return (
     <button className="btn next__btn" onClick={onClick}>
+      Reset
       <img src="/reset.svg" alt="" />
     </button>
   )

@@ -5,9 +5,12 @@ import { useContext } from 'react'
 function Rounds() {
   const { round } = useContext(GameContext)
   return (
-    <p>
-      Rounds: {round}/ {NO_OF_ROUNDS}{' '}
-    </p>
+    <div>
+      <p className="score__label">Round</p>
+      <p>
+        {round}/ {NO_OF_ROUNDS}
+      </p>
+    </div>
   )
 }
 

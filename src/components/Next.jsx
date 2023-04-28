@@ -40,7 +40,7 @@ function Next() {
   }
   return (
     <button className="btn next__btn" onClick={onNext}>
-      <img src="/next_arrow.svg" alt="" />
+      Next <img src="/next_arrow.svg" alt="" />
     </button>
   )
 }

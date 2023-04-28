@@ -3,6 +3,7 @@ import './App.css'
 import { useContext, useEffect } from 'react'
 
 import Card from './components/Card'
+import Celebration from './components/Celebration'
 import GameContext from './context/GameContext'
 import Next from './components/Next'
 import Rest from './components/Rest'
@@ -11,8 +12,16 @@ import Score from './components/Score'
 import UserGuess from './components/UserGuess'
 
 function App() {
-  const { loading, error, setCard, cards, randomizeIndex, isGameOver } =
-    useContext(GameContext)
+  const {
+    loading,
+    error,
+    setCard,
+    cards,
+    randomizeIndex,
+    isGameOver,
+    nextErrorMsg,
+    score
+  } = useContext(GameContext)
 
   useEffect(() => {
     const randomIndex = randomizeIndex()
@@ -37,11 +46,13 @@ function App() {
         <Rounds />
       </div>
       <div className="game__container">
-        <div className="left__col">
-          <Card />
+        <Celebration />
+        <Card />
+        <span className="next__error__msg">{nextErrorMsg}</span>
+        <div className="game__controls">
           <UserGuess />
+          <div>{isGameOver ? <Rest /> : <Next />}</div>
         </div>
-        <div className="right__col">{isGameOver ? <Rest /> : <Next />}</div>
       </div>
     </div>
   )
